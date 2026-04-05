@@ -1,0 +1,238 @@
+﻿<!--
+	Real-Time Audio Delay 2 application for Windows
+	Version 1.4 (Interop C# version 1.0)
+
+	Author: Rafael Sabe
+	Email: rafaelmsabe@gmail.com
+-->
+
+<local:MyPage
+	x:Class="AudioDelay.PlaybackRunningPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:AudioDelay"
+	mc:Ignorable="d"
+	Loaded="onPageLoaded">
+
+	<Canvas>
+		<TextBlock
+			Name="TextBlock1"
+			TextAlignment="Center"
+			Text="Playback Running"/>
+
+		<TextBlock
+			Name="TextBlock2"
+			TextAlignment="Center"
+			Text="WARNING: Feedback delays are Infinite Impulse Response routes. Improper settings may cause it to clip endlessly."/>
+
+		<Canvas
+			Name="Container1"
+			Background="#e0e0e0">
+
+			<TextBlock
+				Name="TextBlock_Params"
+				TextAlignment="Center"
+				Text="Current Parameters"/>
+
+			<TextBlock
+				Name="TextBlock_ParamsIn"
+				TextAlignment="Left"
+				Text=""/>
+
+			<TextBlock
+				Name="TextBlock_ParamsOut"
+				TextAlignment="Left"
+				Text=""/>
+
+		</Canvas>
+
+		<Canvas
+			Name="Container2"
+			Background="#e0e0e0">
+
+			<Canvas
+				Name="Container2_Subcontainer1">
+
+				<TextBlock
+					Name="TextBlock_UpdateDryInAmp"
+					TextAlignment="Center"
+					Text="Enter Dry Input Amplitude"/>
+
+				<TextBox
+					Name="TextBox_UpdateDryInAmp"
+					TextAlignment="Center"
+					Text=""/>
+
+				<Button
+					Name="Button_UpdateDryInAmp"
+					Content="Update Dry Input Amplitude"
+					Click="onButtonUpdateDryInAmpClicked"/>
+
+			</Canvas>
+
+			<Canvas
+				Name="Container2_Subcontainer2">
+
+				<TextBlock
+					Name="TextBlock_UpdateOutAmp"
+					TextAlignment="Center"
+					Text="Enter Output Amplitude"/>
+
+				<TextBox
+					Name="TextBox_UpdateOutAmp"
+					TextAlignment="Center"
+					Text=""/>
+
+				<Button
+					Name="Button_UpdateOutAmp"
+					Content="Update Output Amplitude"
+					Click="onButtonUpdateOutAmpClicked"/>
+
+			</Canvas>
+
+		</Canvas>
+
+		<Canvas
+			Name="Container3"
+			Background="#e0e0e0">
+
+			<TextBlock
+				Name="TextBlock_FF"
+				TextAlignment="Center"
+				Text="Feedforward Delays"/>
+
+			<Canvas
+				Name="Container3_Subcontainer1">
+
+				<TextBlock
+					Name="TextBlock_FFChannelSel"
+					TextAlignment="Center"
+					Text="FF Channel Select"/>
+
+			</Canvas>
+
+			<Canvas
+				Name="Container3_Subcontainer2">
+
+				<TextBlock
+					Name="TextBlock_FFUpdateDelay"
+					TextAlignment="Center"
+					Text="Enter Delay Time (# samples)"/>
+
+				<TextBox
+					Name="TextBox_FFUpdateDelay"
+					TextAlignment="Center"
+					Text=""/>
+
+				<Button
+					Name="Button_FFUpdateDelay"
+					Content="Update FF Delay"
+					Click="onButtonFFUpdateDelayClicked"/>
+
+			</Canvas>
+
+			<Canvas
+				Name="Container3_Subcontainer3">
+
+				<TextBlock
+					Name="TextBlock_FFUpdateAmp"
+					TextAlignment="Center"
+					Text="Enter Delay Amplitude"/>
+
+				<TextBox
+					Name="TextBox_FFUpdateAmp"
+					TextAlignment="Center"
+					Text=""/>
+
+				<Button
+					Name="Button_FFUpdateAmp"
+					Content="Update FF Amplitude"
+					Click="onButtonFFUpdateAmpClicked"/>
+
+			</Canvas>
+
+			<Button
+				Name="Button_FFReset"
+				Content="Reset FF Parameters"
+				Click="onButtonFFResetClicked"/>
+		</Canvas>
+
+		<Canvas
+			Name="Container4"
+			Background="#e0e0e0">
+
+			<TextBlock
+				Name="TextBlock_FB"
+				TextAlignment="Center"
+				Text="Feedback Delays"/>
+
+			<Canvas
+				Name="Container4_Subcontainer1">
+
+				<TextBlock
+					Name="TextBlock_FBChannelSel"
+					TextAlignment="Center"
+					Text="FB Channel Select"/>
+
+			</Canvas>
+
+			<Canvas
+				Name="Container4_Subcontainer2">
+
+				<TextBlock
+					Name="TextBlock_FBUpdateDelay"
+					TextAlignment="Center"
+					Text="Enter Delay Time (# samples)"/>
+
+				<TextBox
+					Name="TextBox_FBUpdateDelay"
+					TextAlignment="Center"
+					Text=""/>
+
+				<Button
+					Name="Button_FBUpdateDelay"
+					Content="Update FB Delay"
+					Click="onButtonFBUpdateDelayClicked"/>
+
+			</Canvas>
+
+			<Canvas
+				Name="Container4_Subcontainer3">
+
+				<TextBlock
+					Name="TextBlock_FBUpdateAmp"
+					TextAlignment="Center"
+					Text="Enter Delay Amplitude"/>
+
+				<TextBox
+					Name="TextBox_FBUpdateAmp"
+					TextAlignment="Center"
+					Text=""/>
+
+				<Button
+					Name="Button_FBUpdateAmp"
+					Content="Update FB Amplitude"
+					Click="onButtonFBUpdateAmpClicked"/>
+
+			</Canvas>
+
+			<Button
+				Name="Button_FBReset"
+				Content="Reset FB Parameters"
+				Click="onButtonFBResetClicked"/>
+
+		</Canvas>
+
+		<Button
+			Name="Button_ResetAllParams"
+			Content="Reset All Parameters"
+			Click="onButtonResetAllParamsClicked"/>
+
+		<Button
+			Name="Button_StopPlayback"
+			Content="Stop Playback"
+			Click="onButtonStopPlaybackClicked"/>
+	</Canvas>
+</local:MyPage>

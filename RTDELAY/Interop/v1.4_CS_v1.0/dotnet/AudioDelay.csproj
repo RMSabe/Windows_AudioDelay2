@@ -1,0 +1,41 @@
+﻿<!--
+	Real-Time Audio Delay 2 application for Windows
+	Version 1.4 (Interop C# version 1.0)
+
+	Author: Rafael Sabe
+	Email: rafaelmsabe@gmail.com
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<!--
+		Set "TARGETCPU" to "__x64__" for 64bit x86 CPUs
+		Set "TARGETCPU" to "__i386__" for 32bit x86 CPUs
+		-->
+
+		<TARGETCPU>__x64__</TARGETCPU>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TARGETCPU)'=='__x64__'">
+
+		<PlatformTarget>x64</PlatformTarget>
+		<DefineConstants>$(DefineConstants);__X64__</DefineConstants>
+
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TARGETCPU)'=='__i386__'">
+
+		<PlatformTarget>x86</PlatformTarget>
+		<DefineConstants>$(DefineConstants);__I386__</DefineConstants>
+
+	</PropertyGroup>
+
+</Project>
